@@ -1,17 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function RatingPage() {
+    const [rating, setRating] = useState(0);
     
-    let starRatings = () => {
+    const starRatings = () => {
+
+            // Create button styles
+            // const buttonStyle = {
+            //     backgroundColor: 'transparent',
+            //     border: 'none',
+            //     outline: 'none',
+            //     cursor: 'pointer',
+            // }
+            // const on = {
+            //     color: '#000'
+            // }
+            // const off = {
+            //     color: '#ccc'
+            // }
+
 
         return (
-            <div className='survey-box'>
-                <button className='1-star'>&#9733;</button>
-                <button className='2-star'>&#9733;</button>
-                <button className='3-star'>&#9733;</button>
-                <button className='4-star'>&#9733;</button>
-                <button className='5-star'>&#9733;</button>
+            <>
+            <div className= 'survey-box'>
+                    {[...Array(5)].map((star, index) => {
+                        index += 1;
+                        return (
+                            <button 
+                            type='button' 
+                            key={index} 
+                            className={index <= rating ? "on" : "off"}
+                            onClick={() => setRating(index)}
+                            >
+                                <span className='star'>&#9733;</span>
+                            </button>
+                        );
+                    })}
             </div>
+            </>
+           
         );
 
     };
@@ -23,4 +50,4 @@ function RatingPage() {
     );
 }
 
-export default RatingPage;
+export { RatingPage };
