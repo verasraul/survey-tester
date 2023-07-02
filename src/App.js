@@ -1,5 +1,5 @@
 import './App.css';
-import RatingPage from './components/RatingPage';
+import { RatingPage } from './components/RatingPage';
 
 
 function App() {
