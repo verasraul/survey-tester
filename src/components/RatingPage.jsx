@@ -2,23 +2,9 @@ import React, { useState } from 'react';
 
 function RatingPage() {
     const [rating, setRating] = useState(0);
+    const [hover, setHover] = useState(0);
     
     const starRatings = () => {
-
-            // Create button styles
-            // const buttonStyle = {
-            //     backgroundColor: 'transparent',
-            //     border: 'none',
-            //     outline: 'none',
-            //     cursor: 'pointer',
-            // }
-            // const on = {
-            //     color: '#000'
-            // }
-            // const off = {
-            //     color: '#ccc'
-            // }
-
 
         return (
             <>
@@ -29,8 +15,10 @@ function RatingPage() {
                             <button 
                             type='button' 
                             key={index} 
-                            className={index <= rating ? "on" : "off"}
+                            className={index <= (hover || rating) ? "on" : "off"}
                             onClick={() => setRating(index)}
+                            onMouseEnter={() => setHover(index)}
+                            onMouseLeave={() => setHover(rating)}
                             >
                                 <span className='star'>&#9733;</span>
                             </button>
