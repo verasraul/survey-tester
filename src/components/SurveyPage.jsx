@@ -1,11 +1,11 @@
 import React from 'react';
 
-function SurveyPage() {
+const SurveyPage = () => {
     return (
         <div>
-            
+            <h1>SURVEY PAGE</h1>
         </div>
     );
 }
 
-export default SurveyPage;
+export SurveyPage;
